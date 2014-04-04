@@ -68,6 +68,7 @@ describe('job', function() {
             var job = failHandler.lastCall.args[0];
 
             assert.equal(job.status, 'failed');
+
             assert.equal(job.error, 'Timed out');
         });
     });
