@@ -47,7 +47,7 @@ describe('job', function() {
         });
 
         it('Manually updates the timeoutAt field', function(done){
-            queue.collection.updateById(this.job.data._id, { $set: { timeoutAt: new Date() } }, done);
+            queue.collection.update({ _id: this.job.data._id }, { $set: { timeoutAt: new Date() } }, done);
         });
 
         it('emits failed once', function(done){
