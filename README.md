@@ -3,6 +3,11 @@ monq
 
 Monq is a MongoDB-backed job queue for Node.js.
 
+[![NPM](https://img.shields.io/npm/v/monq.svg?style=flat)](http://npm.im/monq)
+[![Build Status](https://img.shields.io/travis/scttnlsn/monq.svg?style=flat)](https://travis-ci.org/scttnlsn/monq)
+
+[API Reference](API.md)
+
 Usage
 -----
 
@@ -12,7 +17,7 @@ Connect to MongoDB by specifying a URI or providing `host`, `port` and `database
 var monq = require('monq');
 var client = monq('mongodb://localhost:27017/monq_example');
 ```
-    
+
 Enqueue jobs by supplying a job name and a set of parameters.  Below, the job `reverse` is being placed into the `example` queue:
 
 ```javascript
@@ -44,7 +49,7 @@ worker.start();
 
 Events
 ------
-    
+
 Workers will emit various events while processing jobs:
 
 ```javascript
@@ -53,12 +58,12 @@ worker.on('failed', function (data) { … });
 worker.on('complete', function (data) { … });
 worker.on('error', function (err) { … });
 ```
-    
+
 Install
 -------
 
     npm install monq
-    
+
 Tests
 -----
 
@@ -66,4 +71,9 @@ Tests
 
 You can optionally specify the MongoDB URI to be used for tests:
 
-    MONGODB_URI=mongodb://localhost:27017/monq_tests make test
+    MONGODB_URI=mongodb://localhost:27017/monq_tests npm test
+
+Updating API documentation
+--------------------------
+
+`npm run jsdoc2md`
